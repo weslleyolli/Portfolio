@@ -9,6 +9,9 @@ module.exports = {
         'dark-text': '#ffffff', 
         'light-text': '#475569', 
       },
+      screens: {
+        'xs': '480px', 
+      },
     },
   },
   plugins: [],

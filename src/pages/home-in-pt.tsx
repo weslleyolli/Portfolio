@@ -288,7 +288,7 @@ export function HomePt() {
                         transition={{ type: "spring", stiffness: 300 }}
                     >
                         <ArrowRight className="h-4" />
-                        <p className="text-lg text-center mb-1 ml-2">sobre mim</p>
+                        <Link to="/about-me-br" className="text-lg text-center mb-1 ml-2">sobre mim</Link>
                     </motion.a>
                 </motion.div>
             </div>

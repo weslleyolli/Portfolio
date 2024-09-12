@@ -25,6 +25,7 @@
     background-size: 200px 200px; 
     background-repeat: repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    color: #475569;
   }
 
   .bg-paper-dark {
@@ -33,6 +34,7 @@
     background-size: 200px 200px; 
     background-repeat: repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    color: #dbdae2
   }
 
   .text-shadow-lg {
@@ -68,6 +70,3 @@
     height: 12rem;
 }
 
-.theme-container {
-    position: relative;
-}
