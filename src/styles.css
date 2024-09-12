@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dela-gothic-one-regular {
+    font-family: "Dela Gothic One", sans-serif;
+  }
+  
+  .londrina-shadow-regular {
+    font-family: "Londrina Shadow", sans-serif;
+    
+  }
+
+  .playpen-regular {
+    font-family: "Playpen Sans", cursive;
+  }
+
+  body, .theme-container {
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  .bg-paper {
+    background-color: #e6e8e5;
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png'); 
+    background-size: 200px 200px; 
+    background-repeat: repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+
+  .bg-paper-dark {
+    background-color: #2c2c32;
+    background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+    background-size: 200px 200px; 
+    background-repeat: repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+
+  .text-shadow-lg {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .mouse-circle {
+    width: 20px;  /* Tamanho da bolinha */
+    height: 20px;
+    background-color: transparent;  /* Tornar a bolinha transparente */
+    border: 1px solid black;   /* Cor da bolinha */
+    border-radius: 50%;  /* Tornar a bolinha circular */
+    position: fixed;  /* Para que a bolinha siga o mouse */
+    pointer-events: none;  /* A bolinha não interfere com cliques */
+    transform: translate(-50%, -50%);  /* Para centralizar a bolinha no ponteiro */
+    transition: transform 0.1s ease-out;  /* Animação suave */
+    z-index: 9999;  /* Para garantir que a bolinha fique na frente */
+  }
+
+  .bubble {
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+    transition: transform 0.3s ease-in-out;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.w-48 {
+    width: 12rem; /* Tamanho da bolha */
+    height: 12rem;
+}
+
+.theme-container {
+    position: relative;
+}
