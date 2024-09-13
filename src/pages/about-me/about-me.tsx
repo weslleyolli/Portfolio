@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Container, Header, Menu, MenuItem, ContentWrapper, LeftSide, RightSide, Divider, ResumeLink } from './about-me.styles';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function AboutMe() {
   const [darkMode] = useState<boolean>(() => {
@@ -12,7 +13,9 @@ export function AboutMe() {
   return (
     <Container darkMode={darkMode} className={darkMode ? 'bg-paper-dark' : 'bg-paper'}>
       <Header>
-        <img src="./logo.png" alt="" /> {/* Substituir por imagem se necessário */}
+        <Link to='/'>
+          <img src="./logo.png" alt="" />
+        </Link>
         <Menu>
           <MenuItem to="/">
             <img src="./menu.png" alt="" />
@@ -31,7 +34,7 @@ export function AboutMe() {
             I enjoy the process of solving problems and improving my skills along the way.
             I'm constantly on the lookout for new challenges and opportunities to grow as a developer.
           </p>
-          <ResumeLink href="https://drive.google.com/file/d/1PMCXu3HFJP2jrFSqlFRJBYE2VJ_LvT-a/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <ResumeLink href="https://drive.google.com/file/d/1bmP9S-VIeZxDccm8FZmz-IRvAN4e5Nq0/view" target="_blank" rel="noopener noreferrer" darkMode={darkMode}>
             <ArrowRight className="mt-1" />
             <p>resume</p>
           </ResumeLink>

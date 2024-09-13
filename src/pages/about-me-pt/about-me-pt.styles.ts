@@ -102,18 +102,31 @@ export const Divider = styled.div`
   width: 100%;
 `;
 
-export const ResumeLink = styled.a`
+export const ResumeLink = styled.a <{ darkMode: boolean }>`
   display: flex;
   gap: 8px;
   align-items: center;
   font-family: "Playpen Sans", cursive;
   font-weight: 600;
   font-size: 18px;
-  
-  transition: transform 0.3s ease; /* Transição suave */
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background-color: ${({ darkMode }) => (darkMode ? '#dbdae2' : '#2c2c32')}; 
+    transition: width 0.3s ease; 
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
 
   &:hover {
-    transform: scale(1.1); /* Aumenta o tamanho no hover */
     cursor: pointer;
   }
 `;
