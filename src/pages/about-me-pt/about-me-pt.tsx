@@ -13,7 +13,7 @@ export function AboutMePt() {
   return (
     <Container darkMode={darkMode} className={darkMode ? 'bg-paper-dark' : 'bg-paper'}>
       <Header>
-        <Link to="/">
+        <Link to="/br">
           <img src="./logo.png" alt="" />
         </Link>
         <Menu>

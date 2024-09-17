@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: { 
         'dark-text': '#ffffff', 
-        'light-text': '#475569', 
+        'light-text': '#2b2b33', 
       },
       screens: {
         'xs': '480px', 

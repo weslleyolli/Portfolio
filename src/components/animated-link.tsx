@@ -19,7 +19,7 @@ export function AnimatedLink({ to, text, darkMode, delay = 2 }: AnimatedLinkProp
   return (
     <motion.a
       className={`relative flex p-1 justify-center items-center text-lg ${
-        darkMode ? "text-gray-300" : "text-gray-700"
+        darkMode ? "dark-text" : "light-text"
       }`}
       initial={{ opacity: 0, y: -20 }} // Início da animação (fora da tela)
       animate={{ opacity: 1, y: 0 }} // Animação final (visível)

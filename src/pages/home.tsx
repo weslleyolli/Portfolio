@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from 'gsap';
 import { Header } from "../components/header";
-import { AnimatedLink } from "../components/animated-text";
+import { AnimatedLink } from "../components/animated-link";
 
 interface MousePosition {
     x: number;

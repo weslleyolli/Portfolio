@@ -21,17 +21,17 @@
 
   .bg-paper {
     background-color: #e6e8e5;
-    background-image: url('https://www.transparenttextures.com/patterns/paper.png'); 
-    background-size: 200px 200px; 
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    background-size: 100px 100px; 
     background-repeat: repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    color: #475569;
+    color: #606887;
   }
 
   .bg-paper-dark {
-    background-color: #2c2c32;
-    background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-    background-size: 200px 200px; 
+    background-color: #2b2b33;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    background-size: 100px 100px; 
     background-repeat: repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     color: #dbdae2
