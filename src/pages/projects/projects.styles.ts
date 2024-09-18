@@ -48,7 +48,7 @@ export const ProjectsGrid = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(3, 300px); /* Define 3 colunas com largura fixa */
-  gap: 2rem; /* Espaçamento fixo entre os cards */
+  gap: 2.5rem; /* Espaçamento fixo entre os cards */
   width: 100%;
   max-width: 1200px; /* Limita o grid a uma largura máxima para centralizar melhor */
 
@@ -133,7 +133,7 @@ export const ProjectCardContainer = styled.div`
   }
 
   @media (${breakpoints.desktop}) {
-    height: 45vh;
+    height: 400px;
     padding: 1.5rem;
     h2 {
       font-size: 2rem;
