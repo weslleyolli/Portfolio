@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const breakpoints = {
   mobile: 'max-width: 640px',
-  tablet: 'min-width: 641px and max-width: 1024px',
   desktop: 'min-width: 1025px',
 };
 
@@ -16,10 +15,6 @@ export const ProjectsContainer = styled.div`
 
   @media (max-width: 640px) {
     background-color: blue;
-  }
-
-  @media (min-width: 641px) and (max-width: 1024px) {
-    background-color: red; /* Teste visual */
   }
 `;
 
@@ -47,17 +42,18 @@ export const ProjectsWrapper = styled.div`
 export const ProjectsGrid = styled.div`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(3, 300px); /* Define 3 colunas com largura fixa */
-  gap: 2.5rem; /* Espaçamento fixo entre os cards */
+  grid-template-columns: repeat(3, 300px); /* 3 colunas no desktop */
+  gap: 2rem;
   width: 100%;
-  max-width: 1200px; /* Limita o grid a uma largura máxima para centralizar melhor */
+  max-width: 1200px;
 
-  @media (${breakpoints.tablet}) {
-    grid-template-columns: repeat(2, 300px); /* No tablet, 2 colunas */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+    max-width: 100%; /* Garantir que o grid preencha a tela */
   }
 
   @media (${breakpoints.mobile}) {
-    grid-template-columns: 1fr; /* No mobile, 1 coluna */
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
   }
 `;
 
@@ -121,8 +117,8 @@ export const ProjectCardContainer = styled.div`
       }
     }
   }
-  @media (${breakpoints.tablet}) {
-    height: 80vh;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    height: 400px;
     padding: 1.5rem;
     h2 {
       font-size: 2rem;

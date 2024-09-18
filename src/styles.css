@@ -47,6 +47,12 @@ table {
     border-spacing: 0;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .dela-gothic-one-regular {
     font-family: "Dela Gothic One", sans-serif;
   }
