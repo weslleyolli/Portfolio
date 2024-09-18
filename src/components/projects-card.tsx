@@ -18,9 +18,12 @@ interface ProjectCardProps {
 // Componente ProjectCard que recebe as props definidas por ProjectCardProps
 export function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <ProjectCardContainer>
+        <ProjectCardContainer className="transition-transform duration-300 transform hover:scale-105">
             <div>
-                <img src={project.imageUrl} alt={project.title} />
+                <div className="relative">
+                    <img className="w-full h-64 object-cover" src={project.imageUrl} alt={project.title} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent"></div>
+                </div>
                 <h2>{project.title}</h2>
                 <p>{project.description}</p>
             </div>

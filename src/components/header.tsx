@@ -11,9 +11,9 @@ export function Header({ darkMode, toggleTheme }: HeaderProps) {
   return (
     <header className="relative flex justify-between z-10">
       <Link to="/">
-        <img className="h-28" src="./logo.png" alt="Logo" />
+        <img className="h-20 md:h-28" src="./logo.png" alt="Logo" />
       </Link>
-      <div className="flex justify-center items-center gap-6">
+      <div className="flex justify-center items-center gap-3 md:gap-6">
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -41,7 +41,7 @@ export function Header({ darkMode, toggleTheme }: HeaderProps) {
           <img
             src={darkMode ? "./menu-dark.png" : "./menu.png"}
             alt="Menu Icon"
-            className="h-8"
+            className="h-6 md:h-8"
           />
         </motion.a>
       </div>

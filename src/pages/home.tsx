@@ -28,7 +28,8 @@ export function Home() {
     const ball3Ref = useRef<HTMLDivElement>(null);
     const ball4Ref = useRef<HTMLDivElement>(null);
     const ball5Ref = useRef<HTMLDivElement>(null);
-    const ballSize = 300;
+    const isMobile = window.innerWidth < 640; // Define a condição para mobile
+    const ballSize = isMobile ? 150 : 300;
 
     useEffect(() => {
         const createBouncingBall = (ballRef: React.RefObject<HTMLDivElement>, velocityX: number, velocityY: number) => {
@@ -102,7 +103,7 @@ export function Home() {
         localStorage.setItem("darkMode", (!darkMode).toString());
     };
     return (
-        <div className={`h-screen theme-container relative ${darkMode ? 'bg-paper-dark text-dark-text' : 'bg-paper text-light-text'} flex flex-col justify-between p-20`}
+        <div className={`h-screen theme-container relative ${darkMode ? 'bg-paper-dark text-dark-text' : 'bg-paper text-light-text'}flex flex-col justify-between p-10 md:p-20`}
             style={{
                 overflow: 'hidden',
             }}
@@ -122,7 +123,7 @@ export function Home() {
                         height: ballSize,
                         background: darkMode
                             ? "radial-gradient(circle, #808080 0%, #000000 100%)"
-                            : "radial-gradient(circle, #FFECB3 0%, #65ebba 100%)", 
+                            : "radial-gradient(circle, #FFECB3 0%, #65ebba 100%)",
                         borderRadius: "50%",
                         position: "absolute",
                         top: 0,
@@ -180,39 +181,62 @@ export function Home() {
             </div>
             <Header darkMode={darkMode} toggleTheme={toggleTheme} />
             <div
-                className="mouse-circle"
+                className="mouse-circle hidden md:block" // Esconde no tablet e mobile (md: 768px)
                 style={{
+                    position: "absolute",
                     left: `${position.x}px`,
                     top: `${position.y}px`,
+                    width: "20px",  // Ajuste conforme necessário
+                    height: "20px", // Ajuste conforme necessário
+                    borderRadius: "50%",
+                    background: "transparent", // Cor da bolinha do mouse
+                    pointerEvents: "none", // Previne interação com o mouse
+                    transform: "translate(-50%, -50%)", // Centraliza a bolinha no ponto do mouse
                 }}
-            />
-            <div className="relative flex flex-col items-center justify-center flex-grow gap-8 pb-6 z-10">
+            >
+                <div
+                    className="center-point"
+                    style={{
+                        width: "2px", // Tamanho do ponto
+                        height: "2px", // Tamanho do ponto
+                        borderRadius: "50%",
+                        background: darkMode ? "#fff" : "#000", // Cor do ponto
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)", // Garante que o ponto esteja no centro da bolinha
+                    }}
+                />
+            </div>
+            <div className="relative flex flex-col items-center justify-center flex-grow gap-8 pb-6 z-10 h-full">
                 <div className="space-y-3">
                     <motion.div
-                        className="flex gap-3"
+                        className="flex flex-col items-center md:flex-row md:items-start gap-0 md:gap-3"
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
                     >
-                        <h1 className="text-5xl londrina-shadow-regular text-shadow-lg">HEY, I'M </h1>
+                        <h1 className="text-3xl md:text-5xl londrina-shadow-regular text-shadow-lg text-center">
+                            HEY, I'M
+                        </h1>
                         <motion.h1
-                            className="text-5xl dela-gothic-one-regular"
+                            className="text-2xl md:text-5xl dela-gothic-one-regular whitespace-nowrap"
                             whileHover={{ scale: 1.02 }} // Leve efeito de escala no hover
                         >
                             WESLLEY OLIVEIRA
                         </motion.h1>
                     </motion.div>
                     <motion.div
-                        className="flex justify-center gap-3"
+                        className="flex flex-col items-center md:flex-row md:items-start gap-0 md:gap-3"
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
                     >
-                        <h1 className="text-5xl londrina-shadow-regular tracking-wider text-shadow-lg">
+                        <h1 className="text-2xl md:text-5xl londrina-shadow-regular tracking-wider text-shadow-lg text-center">
                             BUT YOU CAN CALL ME
                         </h1>
                         <motion.h1
-                            className="text-5xl dela-gothic-one-regular"
+                            className="text-2xl md:text-5xl dela-gothic-one-regular text-center"
                             whileHover={{ scale: 1.05 }} // Leve efeito de escala no hover
                         >
                             WELL
@@ -224,11 +248,13 @@ export function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.4, duration: 0.6, ease: "easeOut" }}
                     >
-                        <p className="text-3xl">I'm a front-end web developer</p>
+                        <p className="text-lg md:text-3xl">
+                            I'm a front-end web developer
+                        </p>
                     </motion.div>
                 </div>
                 <div className="flex gap-5 mt-6">
-                    <AnimatedLink to="/" text="see my projects" darkMode={darkMode} />
+                    <AnimatedLink to="/projects" text="see my projects" darkMode={darkMode} />
                     <AnimatedLink to="/about-me" text="more about me" darkMode={darkMode} />
                 </div>
             </div>

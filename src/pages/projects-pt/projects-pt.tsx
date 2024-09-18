@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ProjectsContainer, Title, Subtitle, ProjectsGrid, ProjectsWrapper, ProjectItem } from './projects.styles';
+import { ProjectsContainer, Title, Subtitle, ProjectsGrid, ProjectsWrapper, ProjectItem } from './projects-pt.styles';
 import { ProjectCard } from "../../components/projects-card";
 import { Link } from 'react-router-dom';
 interface Project {
@@ -43,7 +43,7 @@ const projects: Project[] = [
     }
 ];
 
-export function Projects() {
+export function ProjectsBr() {
     const [darkMode] = useState<boolean>(() => {
         const savedTheme = localStorage.getItem("darkMode");
         return savedTheme === "true";
@@ -56,8 +56,8 @@ export function Projects() {
             <Link to="/" className='flex justify-center items-center h-28 w-28 mx-auto lg:mx-0 lg:justify-start '>
                 <img src="/logo.png" alt=""  />
             </Link>
-            <Title>My Work</Title>
-            <Subtitle>A collection of projects I've worked on.</Subtitle>
+            <Title>Meus trabalhos</Title>
+            <Subtitle>Uma coleção de projetos em que trabalhei.</Subtitle>
 
             <ProjectsWrapper>
                 <ProjectsGrid>

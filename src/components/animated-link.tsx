@@ -27,7 +27,7 @@ export function AnimatedLink({ to, text, darkMode, delay = 2 }: AnimatedLinkProp
       whileHover="hover"
     >
       <ArrowRight className="h-4" />
-      <Link to={to} className="ml-2">
+      <Link to={to} className="ml-2 text-xs md:text-lg whitespace-nowrap">
         {text}
       </Link>
       <motion.div
