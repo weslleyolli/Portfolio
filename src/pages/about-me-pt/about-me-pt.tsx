@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { Container, Header, Menu, MenuItem, ContentWrapper, LeftSide, RightSide, Divider, ResumeLink } from './about-me-pt.styles';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';

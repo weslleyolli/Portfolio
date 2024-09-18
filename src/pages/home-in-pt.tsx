@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { gsap } from 'gsap';
+import { AnimatedLink } from "../components/animated-link";
 
 interface MousePosition {
     x: number;
@@ -126,8 +127,8 @@ export function HomePt() {
                         width: ballSize,
                         height: ballSize,
                         background: darkMode 
-                          ? "radial-gradient(circle, #808080 0%, #000000 100%)" // Gradiente de preto para cinza no dark mode
-                          : "radial-gradient(circle, #FFECB3 0%, #65ebba 100%)", // Gradiente original no light mode
+                          ? "radial-gradient(circle, #808080 0%, #000000 100%)"
+                          : "radial-gradient(circle, #FFECB3 0%, #65ebba 100%)", 
                         borderRadius: "50%",
                         position: "absolute",
                         top: 0,
@@ -141,7 +142,7 @@ export function HomePt() {
                         width: ballSize,
                         height: ballSize,
                         background: darkMode 
-                          ? "radial-gradient(circle, #808080 0%, #000000 100%)" // Gradiente de preto para cinza no dark mode
+                          ? "radial-gradient(circle, #808080 0%, #000000 100%)"
                           : "radial-gradient(circle, #65ebba 0%, #f79ba4 80%)",
                         borderRadius: "50%",
                         position: "absolute",
@@ -154,7 +155,7 @@ export function HomePt() {
                         width: ballSize,
                         height: ballSize,
                         background: darkMode 
-                          ? "radial-gradient(circle, #808080 0%, #000000 100%)" // Gradiente de preto para cinza no dark mode
+                          ? "radial-gradient(circle, #808080 0%, #000000 100%)"
                           : "radial-gradient(circle, #f79ba4 0%, #f3d783 80%)",
                         borderRadius: "50%",
                         position: "absolute",
@@ -167,7 +168,7 @@ export function HomePt() {
                         width: ballSize,
                         height: ballSize,
                         background: darkMode 
-                          ? "radial-gradient(circle, #808080 0%, #000000 100%)" // Gradiente de preto para cinza no dark mode
+                          ? "radial-gradient(circle, #808080 0%, #000000 100%)"
                           : "radial-gradient(circle, #d992e6 0%, #FADADD 80%)",
                         borderRadius: "50%",
                         position: "absolute",
@@ -180,7 +181,7 @@ export function HomePt() {
                         width: ballSize - 20,
                         height: ballSize - 20,
                         background: darkMode 
-                          ? "radial-gradient(circle, #808080 0%, #000000 100%)" // Gradiente de preto para cinza no dark mode
+                          ? "radial-gradient(circle, #808080 0%, #000000 100%)" 
                           : "radial-gradient(circle, #65ebba 0%, #76cff8 80%)",
                         borderRadius: "50%",
                         position: "absolute",
@@ -262,35 +263,10 @@ export function HomePt() {
                         <p className="text-3xl">Eu sou um desenvolvedor web front-end</p>
                     </motion.div>
                 </div>
-
-                <motion.div
-                    className="flex gap-5 mt-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2.0, duration: 0.8 }}
-                >
-                    <motion.a
-                        href="#"
-                        className="flex p-1 justify-center items-center"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                    >
-                        <ArrowRight className="h-4" />
-                        <p className="text-lg text-center mb-1 ml-2">ver meus projetos</p>
-                    </motion.a>
-
-                    <motion.a
-                        href="#"
-                        className="flex p-1 justify-center items-center"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                    >
-                        <ArrowRight className="h-4" />
-                        <Link to="/about-me-br" className="text-lg text-center mb-1 ml-2">sobre mim</Link>
-                    </motion.a>
-                </motion.div>
+                <div className="flex gap-5 mt-6">
+                    <AnimatedLink to="/" text="ver meus projetos" darkMode={darkMode} />
+                    <AnimatedLink to="/about-me-br" text="sobre mim" darkMode={darkMode} />
+                </div>
             </div>
         </div>
     );

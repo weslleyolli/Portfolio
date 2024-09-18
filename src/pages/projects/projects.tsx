@@ -49,19 +49,22 @@ export function Projects() {
     });
 
     return (
-        <ProjectsContainer darkMode={darkMode}>
-      <Title>My Work</Title>
-      <Subtitle>A collection of projects I've worked on.</Subtitle>
-      
-      <ProjectsWrapper>
-        <ProjectsGrid>
-          {projects.map((project, index) => (
-            <ProjectItem key={index}>
-              <ProjectCard project={project} />
-            </ProjectItem>
-          ))}
-        </ProjectsGrid>
-      </ProjectsWrapper>
-    </ProjectsContainer>
+        <ProjectsContainer
+            className={darkMode ? 'bg-paper-dark' : 'bg-paper'}
+            darkMode={darkMode}
+        >
+            <Title>My Work</Title>
+            <Subtitle>A collection of projects I've worked on.</Subtitle>
+
+            <ProjectsWrapper>
+                <ProjectsGrid>
+                    {projects.map((project, index) => (
+                        <ProjectItem key={index}>
+                            <ProjectCard project={project} />
+                        </ProjectItem>
+                    ))}
+                </ProjectsGrid>
+            </ProjectsWrapper>
+        </ProjectsContainer>
     );
 }
