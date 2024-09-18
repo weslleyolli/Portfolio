@@ -1,4 +1,5 @@
 import { Globe, Package } from 'lucide-react';
+import { ProjectCardContainer } from '../pages/projects/projects.styles';
 
 // Defina os tipos das props do ProjectCard
 interface ProjectCardProps {
@@ -17,25 +18,24 @@ interface ProjectCardProps {
 // Componente ProjectCard que recebe as props definidas por ProjectCardProps
 export function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="bg-white rounded-[30px] h-[100%] shadow-md p-6 mb-6 flex flex-col justify-between">
+        <ProjectCardContainer>
             <div>
-
-                <img src={project.imageUrl} alt={project.title} className="w-full h-1/3 rounded-md mb-4" />
-                <h2 className="text-3xl font-normal mb-2">{project.title}</h2>
-                <p className="text-lg mb-4">{project.description}</p>
+                <img src={project.imageUrl} alt={project.title} />
+                <h2>{project.title}</h2>
+                <p>{project.description}</p>
             </div>
-            <div className="flex space-x-4">
+            <div className="link-icons">
                 {project.links.website && (
-                    <a href={project.links.website} className="text-blue-500 hover:text-blue-700">
-                        <Globe size={24} color='#000' />
+                    <a href={project.links.website}>
+                        <Globe size={24} />
                     </a>
                 )}
                 {project.links.npm && (
-                    <a href={project.links.npm} className="text-end">
-                        <Package size={24} color='#000' />
+                    <a href={project.links.npm}>
+                        <Package size={24} />
                     </a>
                 )}
             </div>
-        </div>
+        </ProjectCardContainer>
     );
 }
