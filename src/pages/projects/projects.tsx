@@ -51,7 +51,6 @@ export function Projects() {
     return (
         <ProjectsContainer
             className={darkMode ? 'bg-paper-dark' : 'bg-paper'}
-            darkMode={darkMode}
         >
             <Title>My Work</Title>
             <Subtitle>A collection of projects I've worked on.</Subtitle>

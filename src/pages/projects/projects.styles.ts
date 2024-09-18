@@ -2,16 +2,25 @@ import styled from 'styled-components';
 
 const breakpoints = {
   mobile: 'max-width: 640px',
-  desktop: 'min-width: 1000px',
+  tablet: 'min-width: 641px and max-width: 1024px',
+  desktop: 'min-width: 1025px',
 };
 
-export const ProjectsContainer = styled.div<{ darkMode: boolean }>`
+export const ProjectsContainer = styled.div`
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 640px) {
+    background-color: blue;
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    background-color: red; /* Teste visual */
+  }
 `;
 
 export const Title = styled.h1`
@@ -37,19 +46,25 @@ export const ProjectsWrapper = styled.div`
 
 export const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  justify-content: center;
+  grid-template-columns: repeat(3, 300px); /* Define 3 colunas com largura fixa */
+  gap: 2rem; /* Espaçamento fixo entre os cards */
   width: 100%;
+  max-width: 1200px; /* Limita o grid a uma largura máxima para centralizar melhor */
 
-  @media (${breakpoints.desktop}) {
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 66%;
+  @media (${breakpoints.tablet}) {
+    grid-template-columns: repeat(2, 300px); /* No tablet, 2 colunas */
+  }
+
+  @media (${breakpoints.mobile}) {
+    grid-template-columns: 1fr; /* No mobile, 1 coluna */
   }
 `;
 
 export const ProjectItem = styled.div`
   scroll-snap-align: start;
   height: auto;
+
 
 `;
 
@@ -62,8 +77,9 @@ export const ProjectCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
   height: 42vh;
+  min-width: 300px; /* Largura mínima para os cards */
+  max-width: 1fr;
 
   img {
     width: 100%;
@@ -105,8 +121,19 @@ export const ProjectCardContainer = styled.div`
       }
     }
   }
+  @media (${breakpoints.tablet}) {
+    height: 80vh;
+    padding: 1.5rem;
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem; 
+    }
+  }
+
   @media (${breakpoints.desktop}) {
-    height: 50vh;
+    height: 45vh;
     padding: 1.5rem;
     h2 {
       font-size: 2rem;
