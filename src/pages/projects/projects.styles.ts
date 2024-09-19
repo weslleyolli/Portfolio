@@ -109,6 +109,7 @@ export const ProjectCardContainer = styled.div`
     font-size: clamp(1.5rem, 3vw, 1.5rem);
     font-weight: normal;
     color: #2b2b33;
+    margin-bottom: 1rem;
   }
 
   p {
@@ -131,7 +132,7 @@ export const ProjectCardContainer = styled.div`
       transition: color 0.2s;
 
       &:hover {
-        color: #1e90ff;
+        color: #606887;
       }
     }
   }
@@ -171,6 +172,10 @@ export const ProjectCardContainer = styled.div`
     img {
       width: 100%; 
       max-height: 150px;
+    }
+
+    .link-icons {
+      margin-top: 10px;
     }
   }
 `;

@@ -1,6 +1,5 @@
 import { useState } from 'react';
-
-import { Container, Header, Menu, MenuItem, ContentWrapper, LeftSide, RightSide, Divider, ResumeLink } from './about-me.styles';
+import { Container, Header, ContentWrapper, LeftSide, RightSide, Divider, ResumeLink } from './about-me.styles';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -9,19 +8,13 @@ export function AboutMe() {
     const savedTheme = localStorage.getItem("darkMode");
     return savedTheme === "true";
   });
-  
+
   return (
     <Container darkMode={darkMode} className={darkMode ? 'bg-paper-dark' : 'bg-paper'}>
       <Header>
-        <Link to='/'>
+        <Link to='/' className='transform transition-transform duration-300 hover:scale-105'>
           <img src="./logo.png" alt="" />
         </Link>
-        <Menu>
-          <MenuItem to="/">
-            <img src="./menu.png" alt="" />
-          </MenuItem>
-
-        </Menu>
       </Header>
 
       <ContentWrapper>
@@ -40,9 +33,15 @@ export function AboutMe() {
           </ResumeLink>
         </LeftSide>
         <RightSide>
-          <img src="./perfil.jfif" alt="Profile" />
+        <img
+            src="./perfil.jfif"
+            alt="Profile"
+            sizes="(max-width: 640px) 90vw, 
+                   (min-width: 1025px) 24vw, 
+                   70vw"
+          />
         </RightSide>
       </ContentWrapper>
     </Container>
   );
-};
+}

@@ -1,4 +1,4 @@
-import { Globe, Package } from 'lucide-react';
+import { Github, Globe } from 'lucide-react';
 import { ProjectCardContainer } from '../pages/projects/projects.styles';
 
 // Defina os tipos das props do ProjectCard
@@ -29,13 +29,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </div>
             <div className="link-icons">
                 {project.links.website && (
-                    <a href={project.links.website}>
+                    <a href={project.links.website} target="_blank" rel="noopener noreferrer">
                         <Globe size={24} />
                     </a>
                 )}
-                {project.links.npm && (
-                    <a href={project.links.npm}>
-                        <Package size={24} />
+                {project.links.github && (
+                    <a href={project.links.github} target="_blank" rel="noopener noreferrer">
+                        <Github size={24} />
                     </a>
                 )}
             </div>

@@ -181,7 +181,7 @@ export function HomePt() {
                 />
             </div>
             <header className="relative flex justify-between z-10">
-                <Link to="/br">
+                <Link to="/br" className='transform transition-transform duration-300 hover:scale-105'>
                     <img className="h-28" src="./logo.png" alt="Logo" />
                 </Link>
                 <div className="flex justify-center items-center gap-6">

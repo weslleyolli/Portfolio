@@ -8,14 +8,18 @@ const breakpoints = {
 };
 
 export const Container = styled.div<{ darkMode: boolean }>`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 5rem;
+  padding: 2rem;
 
   ${({ darkMode }) => (darkMode ? 'bg-paper-dark' : 'bg-paper')};
+
+  @media (${breakpoints.mobile}) {
+    padding: 1rem; /* Ajusta o padding para mobile */
+  }
 `;
 
 export const Header = styled.header`
@@ -27,6 +31,10 @@ export const Header = styled.header`
 
   img {
     height: 7rem;
+
+    @media (${breakpoints.mobile}) {
+      height: 5rem; /* Reduz a logo no mobile */
+    }
   }
 `;
 
@@ -35,11 +43,14 @@ export const Menu = styled.nav`
   
   img {
     height: 2rem;
+
+    @media (${breakpoints.mobile}) {
+      height: 1.5rem; /* Reduz o ícone do menu no mobile */
+    }
   }
 `;
 
 export const MenuItem = styled(Link)`
-  font-size: 1.2rem;
   text-decoration: none;
   color: #333;
   font-weight: bold;
@@ -47,8 +58,11 @@ export const MenuItem = styled(Link)`
   &:hover {
     color: #007bff;
   }
-`;
 
+  @media (${breakpoints.mobile}) {
+    font-size: 1rem; /* Diminui o tamanho do texto no mobile */
+  }
+`;
 
 export const ContentWrapper = styled.div`
   display: flex;
@@ -61,6 +75,11 @@ export const ContentWrapper = styled.div`
     align-items: flex-start;
     justify-content: space-between;
   }
+
+  @media (${breakpoints.mobile}) {
+    padding: 0.5rem;
+    align-items: center; /* Centraliza no mobile */
+  }
 `;
 
 export const LeftSide = styled.div`
@@ -71,19 +90,29 @@ export const LeftSide = styled.div`
   padding: 20px;
   width: 100%;
   text-align: center;
-  order: 2;
+  order: 2; /* O texto "about" vem por último no mobile */
 
   h1 {
     font-family: "Playpen Sans", cursive;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2.5rem;
+
+    @media (${breakpoints.mobile}) {
+      font-size: 1.8rem;
+    }
   }
 
   p {
     width: 79%;
     font-family: "Playpen Sans", cursive;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.4;
+
+    @media (${breakpoints.mobile}) {
+      font-size: 14px;
+      line-height: 1.3;
+    }
   }
 
   @media (${breakpoints.desktop}) {
@@ -102,13 +131,14 @@ export const Divider = styled.div`
   width: 100%;
 `;
 
-export const ResumeLink = styled.a <{ darkMode: boolean }>`
+export const ResumeLink = styled.a<{ darkMode: boolean }>`
   display: flex;
   gap: 8px;
   align-items: center;
   font-family: "Playpen Sans", cursive;
   font-weight: 600;
   font-size: 18px;
+  margin-top: 2rem;
   position: relative;
 
   &:after {
@@ -129,6 +159,11 @@ export const ResumeLink = styled.a <{ darkMode: boolean }>`
   &:hover {
     cursor: pointer;
   }
+
+  @media (${breakpoints.mobile}) {
+    font-size: 14px;
+    gap: 6px;
+  }
 `;
 
 export const RightSide = styled.div`
@@ -142,8 +177,8 @@ export const RightSide = styled.div`
   @media (${breakpoints.desktop}) {
     position: absolute;
     top: 0px;
-    right: 0px; 
-    z-index: 1; 
+    right: 0px;
+    z-index: 1;
     width: auto;
     padding: 0;
     order: 2;
@@ -153,16 +188,20 @@ export const RightSide = styled.div`
     width: 70vw;
     height: 60vh;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Garante que a imagem sempre mantenha a proporção */
 
     @media (${breakpoints.desktop}) {
       height: 89vh;
       width: 24vw;
       max-width: 600px;
+      border-radius:0px;
       border-bottom-left-radius: 45px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+    }
+
+    @media (${breakpoints.mobile}) {
+      width: 90vw;
+      height: 50vh;
     }
   }
 `;

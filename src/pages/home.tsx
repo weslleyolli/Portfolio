@@ -197,8 +197,8 @@ export function Home() {
                 <div
                     className="center-point"
                     style={{
-                        width: "2px", // Tamanho do ponto
-                        height: "2px", // Tamanho do ponto
+                        width: "3px", // Tamanho do ponto
+                        height: "3px", // Tamanho do ponto
                         borderRadius: "50%",
                         background: darkMode ? "#fff" : "#000", // Cor do ponto
                         position: "absolute",

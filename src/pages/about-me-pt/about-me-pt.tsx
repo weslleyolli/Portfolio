@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Header, Menu, MenuItem, ContentWrapper, LeftSide, RightSide, Divider, ResumeLink } from './about-me-pt.styles';
+import { Container, Header, ContentWrapper, LeftSide, RightSide, Divider, ResumeLink } from './about-me-pt.styles';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -12,15 +12,9 @@ export function AboutMePt() {
   return (
     <Container darkMode={darkMode} className={darkMode ? 'bg-paper-dark' : 'bg-paper'}>
       <Header>
-        <Link to="/br">
+        <Link to='/br' className='transform transition-transform duration-300 hover:scale-105'>
           <img src="./logo.png" alt="" />
         </Link>
-        <Menu>
-          <MenuItem to="/">
-            <img src="./menu.png" alt="" />
-          </MenuItem>
-
-        </Menu>
       </Header>
 
       <ContentWrapper>
@@ -35,13 +29,19 @@ export function AboutMePt() {
           </p>
           <ResumeLink href="https://drive.google.com/file/d/1PMCXu3HFJP2jrFSqlFRJBYE2VJ_LvT-a/view?usp=sharing" target="_blank" rel="noopener noreferrer" darkMode={darkMode}>
             <ArrowRight className="mt-1" />
-            <p>curriculo</p>
+            <p>Curriculo</p>
           </ResumeLink>
         </LeftSide>
         <RightSide>
-          <img src="./perfil.jfif" alt="Profile" />
+          <img
+            src="./perfil.jfif"
+            alt="Profile"
+            sizes="(max-width: 640px) 90vw, 
+                   (min-width: 1025px) 24vw, 
+                   70vw"
+          />
         </RightSide>
       </ContentWrapper>
     </Container>
   );
-};
+}

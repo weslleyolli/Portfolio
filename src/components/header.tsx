@@ -10,7 +10,7 @@ interface HeaderProps {
 export function Header({ darkMode, toggleTheme }: HeaderProps) {
   return (
     <header className="relative flex justify-between z-10">
-      <Link to="/">
+      <Link to="/" className='transform transition-transform duration-300 hover:scale-105'>
         <img className="h-20 md:h-28" src="./logo.png" alt="Logo" />
       </Link>
       <div className="flex justify-center items-center gap-3 md:gap-6">

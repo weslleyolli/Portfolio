@@ -14,11 +14,12 @@ interface Project {
 }
 const projects: Project[] = [
     {
-        title: "Domposer",
-        description: " The stack is Laravel for the backend/API's and vanilla JS for the frontend. The Github repository for this is private at the moment.",
+        title: "Github Blog",
+        description: "This project uses the GitHub API to display user profile information, such as name, avatar, and public repositories. Built with React, it allows users to search profiles and view repository details in real time.",
         imageUrl: "/Rocket-notes.png",
         links: {
-            website: "#"
+            website: "https://thegithubblog.netlify.app/",
+            github: "https://github.com/weslleyolli/GithubBlog",
         }
     },
     {
@@ -38,7 +39,6 @@ const projects: Project[] = [
         links: {
             website: "#",
             github: "#",
-            npm: "#"
         }
     }
 ];
@@ -53,7 +53,7 @@ export function Projects() {
         <ProjectsContainer
             className={darkMode ? 'bg-paper-dark' : 'bg-paper'}
         >
-            <Link to="/" className='flex justify-center items-center h-28 w-28 mx-auto lg:mx-0 lg:justify-start '>
+            <Link to="/" className='flex justify-center items-center h-28 w-28 mx-auto lg:mx-0 lg:justify-start transform transition-transform duration-300 hover:scale-105 '>
                 <img src="/logo.png" alt=""  />
             </Link>
             <Title>My Work</Title>
