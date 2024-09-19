@@ -16,20 +16,19 @@ const projects: Project[] = [
     {
         title: "Github Blog",
         description: "This project uses the GitHub API to display user profile information, such as name, avatar, and public repositories. Built with React, it allows users to search profiles and view repository details in real time.",
-        imageUrl: "/Rocket-notes.png",
+        imageUrl: "/github-blog.png",
         links: {
             website: "https://thegithubblog.netlify.app/",
             github: "https://github.com/weslleyolli/GithubBlog",
         }
     },
     {
-        title: "Bay.js",
-        description: "It's available as a NPM package and doesn't use any dependencies and is 11kb minified. It also doesn't use eval or new Function so can be used in strict CSP policies without a build step.",
-        imageUrl: "/Rocket-notes.png",
+        title: "Coffe Shop",
+        description: "This project is an e-commerce platform for an online coffee shop, developed using Next.js for optimized performance, server-side rendering (SSR), and static site generation (SSG).",
+        imageUrl: "/CoffeShop.png",
         links: {
-            website: "#",
-            github: "#",
-            npm: "#"
+            website: "https://oncoffeeshop.netlify.app/",
+            github: "https://github.com/weslleyolli/coffee-shop",
         }
     },
     {
