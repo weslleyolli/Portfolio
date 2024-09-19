@@ -1,69 +1,79 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence} from "framer-motion"; // Para redirecionamento
+import { motion, AnimatePresence } from "framer-motion";
 
 export function LanguageSwitcher() {
   const [loading, setLoading] = useState(true);
+  const [startExit, setStartExit] = useState(false); // Estado para controlar o início da animação de saída
   const navigate = useNavigate();
 
   // Verifica se o dark mode está salvo no localStorage
-  const darkMode = useState<boolean>(() => {
+  const [darkMode] = useState<boolean>(() => {
     const savedTheme = localStorage.getItem("darkMode");
-    return savedTheme === "true"; // Se "true", ativa o dark mode
-  })[0];
+    return savedTheme === "true";
+  });
 
   // Estado para controlar o texto de carregamento
   const language = useState<string>(() => {
     const savedLanguage = localStorage.getItem("language");
-    return savedLanguage || "en"; // Padrão é 'en' se não houver linguagem salva
+    return savedLanguage || "en";
   })[0];
 
-  // Simula um atraso antes de exibir o conteúdo
+  // Simula um atraso antes de iniciar a animação de saída
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // Verifica a linguagem no localStorage
+    // Após 1.5 segundos, começa a animação de saída
+    const exitTimer = setTimeout(() => {
+      setStartExit(true); // Inicia a animação de saída
+    }, 1500);
+
+    // Após 2 segundos, navega para a próxima página
+    const navigationTimer = setTimeout(() => {
       const savedLanguage = localStorage.getItem("language");
 
       if (savedLanguage === "pt") {
-        navigate("/br"); // Redireciona para a página em português
+        navigate("/br");
       } else {
-        navigate("/en"); // Redireciona para a página em inglês (padrão)
+        navigate("/en");
       }
 
-      setLoading(false); // Desativa o estado de carregamento
-    }, 2000); // Atraso de 2 segundos
+      setLoading(false);
+    }, 2000); // Atraso de 2 segundos para navegação
 
-    return () => clearTimeout(timer); // Limpa o timer ao desmontar o componente
+    return () => {
+      clearTimeout(exitTimer); // Limpa o timer de saída
+      clearTimeout(navigationTimer); // Limpa o timer de navegação
+    };
   }, [navigate]);
 
   return (
     <div className={`min-h-screen flex flex-col items-center justify-center ${darkMode ? 'bg-paper-dark' : 'bg-paper'}`}>
       <AnimatePresence>
-        {/* Se estiver carregando, mostre a animação */}
-        {loading && (
+        {loading && !startExit && ( // Exibe até que a animação de saída comece
           <motion.div
-            className="text-center mb-40"
-            initial={{ opacity: 0 }} // Opacidade inicial zero para toda a div
-            animate={{ opacity: 1 }} // Anima opacidade para 1
-            exit={{ opacity: 0 }} // Sobe fora da tela ao sair
-            transition={{ duration: 1 }} // Duração da animação
+            className="text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: 100 }} // Sobe ao sair
+            transition={{ duration: 0.5 }} // Duração da animação de saída
           >
             {/* Animação da imagem primeiro */}
             <motion.img
               src="/logo.png"
               alt="Exemplo de Imagem"
-              className="h-40 w-40 ml-3"
-              initial={{ y: 100, opacity: 0 }} // Começa fora da tela e invisível
-              animate={{ y: 0, opacity: 1 }} // Anima para a posição inicial e visível
-              transition={{ duration: 0.3 }} // Duração da animação
+              className="h-40 w-40 ml-3" // Ajusta o espaçamento com 'mb-4'
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 100, opacity: 0 }} // Sobe na saída
+              transition={{ duration: 0.6 }}
             />
 
             {/* Animação do texto com delay */}
             <motion.p
-              className="text-2xl font-semibold"
-              initial={{ y: 100, opacity: 0 }} // Começa fora da tela e invisível
-              animate={{ y: 0, opacity: 1 }} // Anima para a posição inicial e visível
-              transition={{ delay: 0.5, duration: 0.3 }} // Delay para aparecer depois da imagem
+              className="text-xl lg:text-2xl font-semibold mt-[-30px]"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 100, opacity: 0 }} // Sobe na saída
+              transition={{ delay: 0.3, duration: 0.4 }} // Delay para aparecer depois da imagem
             >
               {language === "pt" ? "Materializando itens..." : "Materializing items..."}
             </motion.p>
