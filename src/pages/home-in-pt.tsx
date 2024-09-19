@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { gsap } from 'gsap';
 import { AnimatedLink } from "../components/animated-link";
 import { Moon, Sun } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface MousePosition {
     x: number;
@@ -11,11 +11,17 @@ interface MousePosition {
 }
 
 export function HomePt() {
+    const navigate = useNavigate();
     const [position, setPosition] = useState<MousePosition>({ x: 0, y: 0 });
     const [darkMode, setDarkMode] = useState<boolean>(() => {
         const savedTheme = localStorage.getItem("darkMode");
         return savedTheme === "true";
     });
+
+    const handleLanguageChange = () => {
+        localStorage.setItem("language", "en"); // Salva "pt" no localStorage
+        navigate("/");
+    };
 
     const handleMouseMove = (event: MouseEvent) => {
         setPosition({
@@ -190,7 +196,7 @@ export function HomePt() {
                         whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 300 }}
                     >
-                        <Link to="/">
+                        <Link to="#" onClick={handleLanguageChange}>
                             <p>EN</p>
                         </Link>
                     </motion.div>

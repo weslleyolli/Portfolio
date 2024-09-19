@@ -7,10 +7,15 @@ import { Projects } from "./pages/projects/projects";
 import { ProjectsBr } from "./pages/projects-pt/projects-pt";
 import { Menu } from "./pages/menu";
 import { MenuPt } from "./pages/menu-pt";
+import { LanguageSwitcher } from "./components/language-switcher";
 
 export const router = createBrowserRouter([
     {
         path: '/',
+        element: <LanguageSwitcher />,
+    },
+    {
+        path: '/en',
         element: <Home />,
     },
     {
@@ -40,6 +45,11 @@ export const router = createBrowserRouter([
     {
         path: '/menu-br',
         element: <MenuPt />,
+    },
+
+    {
+        path: '/language',
+        element: <LanguageSwitcher />,
     },
     
 ])
