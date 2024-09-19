@@ -19,7 +19,7 @@ export const Title = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 
   @media (max-width: 640px) {

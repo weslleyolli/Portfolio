@@ -87,7 +87,7 @@ export function Home() {
             window.removeEventListener("resize", handleResize);
             gsap.killTweensOf("*");
         };
-    }, []);
+    }, [ballSize]);
 
     useEffect(() => {
         window.addEventListener("mousemove", handleMouseMove);
@@ -216,7 +216,7 @@ export function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
                     >
-                        <h1 className="text-3xl md:text-5xl londrina-shadow-regular text-shadow-lg text-center">
+                        <h1 className="text-3xl md:text-5xl londrina-shadow-regular text-shadow-lg text-center whitespace-nowrap">
                             HEY, I'M
                         </h1>
                         <motion.h1

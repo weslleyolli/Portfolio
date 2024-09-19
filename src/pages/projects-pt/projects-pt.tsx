@@ -53,7 +53,7 @@ export function ProjectsBr() {
         <ProjectsContainer
             className={darkMode ? 'bg-paper-dark' : 'bg-paper'}
         >
-            <Link to="/" className='flex justify-center items-center h-28 w-28 mx-auto lg:mx-0 lg:justify-start '>
+            <Link to="/br" className='flex justify-center items-center h-28 w-28 mx-auto lg:mx-0 lg:justify-start '>
                 <img src="/logo.png" alt=""  />
             </Link>
             <Title>Meus trabalhos</Title>
