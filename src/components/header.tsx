@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 interface HeaderProps {
-    darkMode: boolean;
-    toggleTheme: () => void; // A função de alternar o tema não recebe argumentos
-  }
+  darkMode: boolean;
+  toggleTheme: () => void; // A função de alternar o tema não recebe argumentos
+}
 
 export function Header({ darkMode, toggleTheme }: HeaderProps) {
   return (
@@ -31,19 +31,14 @@ export function Header({ darkMode, toggleTheme }: HeaderProps) {
         >
           {darkMode ? <Sun className="h-5" /> : <Moon className="h-5" />}
         </motion.button>
-        <motion.a
-          href="#"
-          className="flex p-1 justify-center items-center"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
+        <Link to="/menu" className='transform transition-transform duration-300 hover:scale-105'>
           <img
             src={darkMode ? "./menu-dark.png" : "./menu.png"}
             alt="Menu Icon"
             className="h-6 md:h-8"
           />
-        </motion.a>
+        </Link>
+
       </div>
     </header>
   );

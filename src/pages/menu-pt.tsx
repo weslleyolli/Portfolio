@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from 'gsap';
-import { AnimatedLink } from "../components/animated-link";
-import { Moon, Sun } from "lucide-react";
+import { ArrowUpRight, Moon, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface MousePosition {
@@ -10,7 +9,7 @@ interface MousePosition {
     y: number;
 }
 
-export function HomePt() {
+export function MenuPt() {
     const [position, setPosition] = useState<MousePosition>({ x: 0, y: 0 });
     const [darkMode, setDarkMode] = useState<boolean>(() => {
         const savedTheme = localStorage.getItem("darkMode");
@@ -190,7 +189,7 @@ export function HomePt() {
                         whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 300 }}
                     >
-                        <Link to="/">
+                        <Link to="/menu">
                             <p>EN</p>
                         </Link>
                     </motion.div>
@@ -202,9 +201,15 @@ export function HomePt() {
                     >
                         {darkMode ? <Sun className="h-5" /> : <Moon className="h-5" />}
                     </motion.button>
-                    <Link to="/menu-br" className='transform transition-transform duration-300 hover:scale-105'>
+                    <motion.a
+                        href="#"
+                        className="flex p-1 justify-center items-center"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
                         <img src={darkMode ? "./menu-dark.png" : "./menu.png"} alt="Menu Icon" className="h-8" />
-                    </Link>
+                    </motion.a>
                 </div>
             </header>
             <div
@@ -224,8 +229,8 @@ export function HomePt() {
                 <div
                     className="center-point"
                     style={{
-                        width: "2px", // Tamanho do ponto
-                        height: "2px", // Tamanho do ponto
+                        width: "3px", // Tamanho do ponto
+                        height: "3px", // Tamanho do ponto
                         borderRadius: "50%",
                         background: darkMode ? "#fff" : "#000", // Cor do ponto
                         position: "absolute",
@@ -235,54 +240,53 @@ export function HomePt() {
                     }}
                 />
             </div>
-            <div className="relative flex flex-col items-center justify-center flex-grow gap-8 pb-6 z-10 h-full">
-                <div className="space-y-3">
-                    <motion.div
-                        className="flex flex-col items-center md:flex-row md:items-start gap-0 md:gap-3"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                    >
-                        <h1 className="text-3xl md:text-5xl londrina-shadow-regular text-shadow-lg text-center whitespace-nowrap">
-                            OLÁ, EU SOU
-                        </h1>
-                        <motion.h1
-                            className="text-2xl md:text-5xl dela-gothic-one-regular whitespace-nowrap"
-                            whileHover={{ scale: 1.02 }} // Leve efeito de escala no hover
+            <div className="relative flex flex-col gap-8 z-10 h-full mt-5 ml-5 lg:mt-10 lg:ml-20">
+                <Link to="/br" className="flex items-end gap-3">
+                    <p className="text-xl">01</p>
+                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">INICIO</h1>
+                </Link>
+                <Link to="/projects-br" className="flex items-end gap-3">
+                    <p className="text-xl">02</p>
+                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">PROJETOS</h1>
+                </Link>
+                <Link to="/about-me-br" className="flex items-end gap-3">
+                    <p className="text-xl">03</p>
+                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">SOBRE</h1>
+                </Link>
+                <Link to="#" className="flex items-end gap-3">
+                    <p className="text-xl">04</p>
+                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">CONTATO</h1>
+                </Link>
+                <div className="flex gap-3">
+                    <div className="flex items-center">
+                        <Link
+                            to="https://www.instagram.com/weslley_olli?igsh=MXNsOGpzZ2FlN2p3cA%3D%3D&utm_source=qr"
+                            className="relative flex items-center text-xs md:text-lg whitespace-nowrap group"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            WESLLEY OLIVEIRA
-                        </motion.h1>
-                    </motion.div>
-                    <motion.div
-                        className="flex flex-col items-center md:flex-row md:items-start gap-0 md:gap-3"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-                    >
-                        <h1 className="text-2xl md:text-5xl londrina-shadow-regular tracking-wider text-shadow-lg text-center">
-                            MAS VOCÊ PODE ME CHAMAR DE
-                        </h1>
-                        <motion.h1
-                            className="text-2xl md:text-5xl dela-gothic-one-regular text-center"
-                            whileHover={{ scale: 1.05 }} // Leve efeito de escala no hover
+                            <ArrowUpRight className="h-4 mt-0" />
+                            <p className="ml-1">Instagram</p>
+                            <span
+                                className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform origin-left duration-300 scale-x-0 group-hover:scale-x-105 ${darkMode ? "bg-gray-200" : "bg-slate-500"}`}
+                            ></span>
+                        </Link>
+
+                    </div>
+                    <div className="flex items-center">
+                        <Link
+                            to="https://www.linkedin.com/in/weslley-oliveira-5a3443238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                            className="flex text-xs md:text-lg whitespace-nowrap relative group"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            WELL
-                        </motion.h1>
-                    </motion.div>
-                    <motion.div
-                        className="flex justify-center"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.4, duration: 0.6, ease: "easeOut" }}
-                    >
-                        <p className="text-lg md:text-3xl">
-                            Sou desenvolvedor front-end
-                        </p>
-                    </motion.div>
-                </div>
-                <div className="flex gap-5 mt-6">
-                    <AnimatedLink to="/projects-br" text="Veja meus projetos" darkMode={darkMode} />
-                    <AnimatedLink to="/about-me-br" text="Mais sobre mim" darkMode={darkMode} />
+                            <ArrowUpRight className="h-4 mt-0 lg:mt-1.5" />
+                            <p className="ml-1">Linkedin</p>
+                            <span
+                                className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform origin-left duration-300 scale-x-0 group-hover:scale-x-105 ${darkMode ? "bg-gray-200" : "bg-slate-500"}`}
+                            ></span>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

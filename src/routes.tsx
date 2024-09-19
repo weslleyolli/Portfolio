@@ -5,6 +5,8 @@ import { AboutMe } from "./pages/about-me/about-me";
 import { AboutMePt } from "./pages/about-me-pt/about-me-pt";
 import { Projects } from "./pages/projects/projects";
 import { ProjectsBr } from "./pages/projects-pt/projects-pt";
+import { Menu } from "./pages/menu";
+import { MenuPt } from "./pages/menu-pt";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
     {
         path: '/projects-br',
         element: <ProjectsBr />,
+    },
+    {
+        path: '/menu',
+        element: <Menu />,
+    },
+    {
+        path: '/menu-br',
+        element: <MenuPt />,
     },
     
 ])
