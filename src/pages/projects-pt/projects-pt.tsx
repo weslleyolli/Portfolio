@@ -14,31 +14,30 @@ interface Project {
 }
 const projects: Project[] = [
     {
-        title: "Domposer",
-        description: " The stack is Laravel for the backend/API's and vanilla JS for the frontend. The Github repository for this is private at the moment.",
-        imageUrl: "/Rocket-notes.png",
+        title: "Github Blog",
+        description: "Este projeto utiliza a API do GitHub para exibir informações do perfil do usuário, como nome, avatar e repositórios públicos. Construído com React, ele permite que os usuários pesquisem perfis e visualizem detalhes dos repositórios em tempo real.",
+        imageUrl: "/github-blog.png",
         links: {
-            website: "#"
+            website: "https://thegithubblog.netlify.app/",
+            github: "https://github.com/weslleyolli/GithubBlog",
         }
     },
     {
-        title: "Bay.js",
-        description: "It's available as a NPM package and doesn't use any dependencies and is 11kb minified. It also doesn't use eval or new Function so can be used in strict CSP policies without a build step.",
-        imageUrl: "/Rocket-notes.png",
+        title: "Coffe Shop",
+        description: "Este projeto é uma plataforma de e-commerce para uma cafeteria online, desenvolvida utilizando Next.js para desempenho otimizado, renderização do lado do servidor (SSR) e geração de sites estáticos (SSG).",
+        imageUrl: "/CoffeShop.png",
         links: {
-            website: "#",
-            github: "#",
-            npm: "#"
+            website: "https://oncoffeeshop.netlify.app/",
+            github: "https://github.com/weslleyolli/coffee-shop",
         }
     },
     {
-        title: "Cookiemunch",
-        description: " This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
+        title: "Rocket Notes",
+        description: " Um app de anotações permite criar, editar, salvar e organizar notas de forma simples e rápida. Ideal para capturar ideias, listas e lembretes,",
         imageUrl: "/Rocket-notes.png",
         links: {
-            website: "#",
-            github: "#",
-            npm: "#"
+            website: "https://therockettnotes.netlify.app/",
+            github: "https://github.com/weslleyolli/Rocket_notes"
         }
     }
 ];

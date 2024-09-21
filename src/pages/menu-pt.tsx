@@ -259,7 +259,7 @@ export function MenuPt() {
                     <p className="text-xl">03</p>
                     <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">SOBRE</h1>
                 </Link>
-                <Link to="#" className="flex items-end gap-3">
+                <Link to="/contact-br" className="flex items-end gap-3">
                     <p className="text-xl">04</p>
                     <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">CONTATO</h1>
                 </Link>

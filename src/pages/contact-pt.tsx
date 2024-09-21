@@ -1,20 +1,26 @@
 import { useState, useEffect, useRef } from "react";
 import { gsap } from 'gsap';
-import { Header } from "../components/header";
-import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Moon, Sun } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface MousePosition {
     x: number;
     y: number;
 }
 
-export function Menu() {
+export function ContactBr() {
+    const navigate = useNavigate();
     const [position, setPosition] = useState<MousePosition>({ x: 0, y: 0 });
     const [darkMode, setDarkMode] = useState<boolean>(() => {
         const savedTheme = localStorage.getItem("darkMode");
         return savedTheme === "true";
     });
+
+    const handleLanguageChange = () => {
+        localStorage.setItem("language", "en"); // Salva "pt" no localStorage
+        navigate("/");
+    };
 
     const handleMouseMove = (event: MouseEvent) => {
         setPosition({
@@ -128,6 +134,7 @@ export function Menu() {
                         position: "absolute",
                         top: 0,
                         left: 0,
+                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -140,6 +147,7 @@ export function Menu() {
                             : "radial-gradient(circle, #65ebba 0%, #f79ba4 80%)",
                         borderRadius: "50%",
                         position: "absolute",
+                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -152,6 +160,7 @@ export function Menu() {
                             : "radial-gradient(circle, #f79ba4 0%, #f3d783 80%)",
                         borderRadius: "50%",
                         position: "absolute",
+                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -164,6 +173,7 @@ export function Menu() {
                             : "radial-gradient(circle, #d992e6 0%, #FADADD 80%)",
                         borderRadius: "50%",
                         position: "absolute",
+                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -176,10 +186,43 @@ export function Menu() {
                             : "radial-gradient(circle, #65ebba 0%, #76cff8 80%)",
                         borderRadius: "50%",
                         position: "absolute",
+                        filter: "blur(20px)",
                     }}
                 />
             </div>
-            <Header darkMode={darkMode} toggleTheme={toggleTheme} />
+            <header className="relative flex justify-between z-10">
+                <Link to="/br" className='transform transition-transform duration-300 hover:scale-105'>
+                    <img className="h-28" src="./logo.png" alt="Logo" />
+                </Link>
+                <div className="flex justify-center items-center gap-6">
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
+                        <Link to="#" onClick={handleLanguageChange}>
+                            <p>EN</p>
+                        </Link>
+                    </motion.div>
+                    <motion.button
+                        onClick={toggleTheme}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
+                        {darkMode ? <Sun className="h-5" /> : <Moon className="h-5" />}
+                    </motion.button>
+                    <motion.a
+                        href="/menu-br"
+                        className="flex p-1 justify-center items-center"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
+                        <img src={darkMode ? "./menu-dark.png" : "./menu.png"} alt="Menu Icon" className="h-8" />
+                    </motion.a>
+                </div>
+            </header>
             <div
                 className="mouse-circle hidden md:block" // Esconde no tablet e mobile (md: 768px)
                 style={{
@@ -209,54 +252,53 @@ export function Menu() {
                 />
             </div>
             <div className="relative flex flex-col gap-8 z-10 h-full mt-5 ml-5 lg:mt-10 lg:ml-20">
-                <Link to="/" className="flex items-end gap-3">
-                    <p className="text-xl">01</p>
-                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">HOME</h1>
-                </Link>
-                <Link to="/projects" className="flex items-end gap-3">
-                    <p className="text-xl">02</p>
-                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">WORK</h1>
-                </Link>
-                <Link to="/about-me" className="flex items-end gap-3">
-                    <p className="text-xl">03</p>
-                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">ABOUT</h1>
-                </Link>
-                <Link to="/contact" className="flex items-end gap-3">
-                    <p className="text-xl">04</p>
-                    <h1 className="text-4xl lg:text-5xl font-bold transform transition-transform duration-300 hover:scale-110">CONTACT</h1>
-                </Link>
-                <div className="flex gap-3">
-                    <div className="flex items-center">
-                        <Link
-                            to="https://www.instagram.com/weslley_olli?igsh=MXNsOGpzZ2FlN2p3cA%3D%3D&utm_source=qr"
-                            className="relative flex items-center text-xs md:text-lg whitespace-nowrap group"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <ArrowUpRight className="h-4 mt-0" />
-                            <p className="ml-1">Instagram</p>
-                            <span
-                                className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform origin-left duration-300 scale-x-0 group-hover:scale-x-105 ${darkMode ? "bg-gray-200" : "bg-slate-500"}`}
-                            ></span>
-                        </Link>
-
+                <div>
+                    <h1 className="text-4xl lg:text-5xl font-bold">CONTATO</h1>
+                </div>
+                <div className="h-[2px] w-[90%] bg-slate-500"></div>
+                <div className="flex flex-col md:flex-row gap-10"> {/* Flex-col no mobile e flex-row em telas maiores */}
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-5"> {/* Flex-col no mobile para empilhar Mail e Email */}
+                        <h1 className="font-extrabold text-2xl">EMAIL</h1>
+                        <div className="flex items-center">
+                            <p>Weslleyrichardson.cg@hotmail.com</p>
+                        </div>
                     </div>
-                    <div className="flex items-center">
-                        <Link
-                            to="https://www.linkedin.com/in/weslley-oliveira-5a3443238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                            className="flex text-xs md:text-lg whitespace-nowrap relative group"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <ArrowUpRight className="h-4 mt-0 lg:mt-1.5" />
-                            <p className="ml-1">Linkedin</p>
-                            <span
-                                className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform origin-left duration-300 scale-x-0 group-hover:scale-x-105 ${darkMode ? "bg-gray-200" : "bg-slate-500"}`}
-                            ></span>
-                        </Link>
+                    <div className="flex flex-col gap-3"> {/* Flex-col para empilhar as redes sociais */}
+                        <h1 className="font-extrabold text-2xl">REDES SOCIAIS</h1>
+                        <div>
+                            <div className="flex items-center">
+                                <Link
+                                    to="https://www.instagram.com/weslley_olli?igsh=MXNsOGpzZ2FlN2p3cA%3D%3D&utm_source=qr"
+                                    className="relative flex items-center text-xs md:text-lg whitespace-nowrap group"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <ArrowUpRight className="h-4 mt-0" />
+                                    <p className="ml-1">Instagram</p>
+                                    <span
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform origin-left duration-300 scale-x-0 group-hover:scale-x-105 ${darkMode ? "bg-gray-200" : "bg-slate-500"}`}
+                                    ></span>
+                                </Link>
+                            </div>
+                            <div className="flex items-center">
+                                <Link
+                                    to="https://www.linkedin.com/in/weslley-oliveira-5a3443238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                                    className="flex text-xs md:text-lg whitespace-nowrap relative group"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <ArrowUpRight className="h-4 mt-0 lg:mt-1.5" />
+                                    <p className="ml-1">Linkedin</p>
+                                    <span
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform origin-left duration-300 scale-x-0 group-hover:scale-x-105 ${darkMode ? "bg-gray-200" : "bg-slate-500"}`}
+                                    ></span>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }

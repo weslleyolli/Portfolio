@@ -8,6 +8,8 @@ import { ProjectsBr } from "./pages/projects-pt/projects-pt";
 import { Menu } from "./pages/menu";
 import { MenuPt } from "./pages/menu-pt";
 import { LanguageSwitcher } from "./components/language-switcher";
+import { Contact } from "./pages/contact";
+import { ContactBr } from "./pages/contact-pt";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +52,14 @@ export const router = createBrowserRouter([
     {
         path: '/language',
         element: <LanguageSwitcher />,
+    },
+    {
+        path: '/contact',
+        element: <Contact />,
+    },
+    {
+        path: '/contact-br',
+        element: <ContactBr />,
     },
     
 ])

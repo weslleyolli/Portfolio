@@ -32,12 +32,12 @@ const projects: Project[] = [
         }
     },
     {
-        title: "Cookiemunch",
-        description: " This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
+        title: "Rocket Notes",
+        description: " A note-taking app lets you quickly create, edit, and organize notes. Ideal for capturing ideas, lists, and reminders, it offers features like categorization, search, and sync, keeping your information easily accessible.",
         imageUrl: "/Rocket-notes.png",
         links: {
-            website: "#",
-            github: "#",
+            website: "https://oncoffeeshop.netlify.app/",
+            github: "https://github.com/weslleyolli/coffee-shop",
         }
     }
 ];
