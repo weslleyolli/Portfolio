@@ -121,3 +121,6 @@ html, body {
     height: 12rem;
 }
 
+.px-safe-top {
+  padding-top: env(safe-area-inset-top);
+}

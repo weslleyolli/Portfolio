@@ -13,6 +13,10 @@ export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
+
 `;
 
 export const Title = styled.h1`

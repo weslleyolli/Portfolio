@@ -15,10 +15,14 @@ export const Container = styled.div<{ darkMode: boolean }>`
   width: 100%;
   padding: 2rem;
 
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
+
   ${({ darkMode }) => (darkMode ? 'bg-paper-dark' : 'bg-paper')};
 
   @media (${breakpoints.mobile}) {
-    padding: 1rem; /* Ajusta o padding para mobile */
+    padding: 1rem;
   }
 `;
 

@@ -13,6 +13,11 @@ export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  @supports (-webkit-touch-callout: none) {
+    // Essa regra ajusta para lidar com o iOS e garantir que o container vá até o topo
+    min-height: -webkit-fill-available;
+  }
+
 `;
 
 export const Title = styled.h1`

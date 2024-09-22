@@ -109,7 +109,7 @@ export function ContactBr() {
         localStorage.setItem("darkMode", (!darkMode).toString());
     };
     return (
-        <div className={`h-screen theme-container relative ${darkMode ? 'bg-paper-dark text-dark-text' : 'bg-paper text-light-text'}flex flex-col justify-between p-10 md:p-20`}
+        <div className={`h-screen theme-container relative ${darkMode ? 'bg-paper-dark text-dark-text' : 'bg-paper text-light-text'}flex flex-col justify-between p-10 md:p-20 px-safe-top`}
             style={{
                 overflow: 'hidden',
             }}
