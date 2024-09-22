@@ -36,8 +36,8 @@ const projects: Project[] = [
         description: " A note-taking app lets you quickly create, edit, and organize notes. Ideal for capturing ideas, lists, and reminders, it offers features like categorization, search, and sync, keeping your information easily accessible.",
         imageUrl: "/Rocket-notes.png",
         links: {
-            website: "https://oncoffeeshop.netlify.app/",
-            github: "https://github.com/weslleyolli/coffee-shop",
+            website: "https://therockettnotes.netlify.app/",
+            github: "https://github.com/weslleyolli/Rocket_notes"
         }
     }
 ];
