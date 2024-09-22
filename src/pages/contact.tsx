@@ -128,7 +128,6 @@ export function Contact() {
                         position: "absolute",
                         top: 0,
                         left: 0,
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -141,7 +140,6 @@ export function Contact() {
                             : "radial-gradient(circle, #65ebba 0%, #f79ba4 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -154,7 +152,6 @@ export function Contact() {
                             : "radial-gradient(circle, #f79ba4 0%, #f3d783 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -167,7 +164,6 @@ export function Contact() {
                             : "radial-gradient(circle, #d992e6 0%, #FADADD 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -180,7 +176,6 @@ export function Contact() {
                             : "radial-gradient(circle, #65ebba 0%, #76cff8 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
             </div>

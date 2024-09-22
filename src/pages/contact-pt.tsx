@@ -134,7 +134,6 @@ export function ContactBr() {
                         position: "absolute",
                         top: 0,
                         left: 0,
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -147,7 +146,6 @@ export function ContactBr() {
                             : "radial-gradient(circle, #65ebba 0%, #f79ba4 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -160,7 +158,6 @@ export function ContactBr() {
                             : "radial-gradient(circle, #f79ba4 0%, #f3d783 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -173,7 +170,6 @@ export function ContactBr() {
                             : "radial-gradient(circle, #d992e6 0%, #FADADD 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
                 <div
@@ -186,7 +182,6 @@ export function ContactBr() {
                             : "radial-gradient(circle, #65ebba 0%, #76cff8 80%)",
                         borderRadius: "50%",
                         position: "absolute",
-                        filter: "blur(20px)",
                     }}
                 />
             </div>
@@ -212,15 +207,9 @@ export function ContactBr() {
                     >
                         {darkMode ? <Sun className="h-5" /> : <Moon className="h-5" />}
                     </motion.button>
-                    <motion.a
-                        href="/menu-br"
-                        className="flex p-1 justify-center items-center"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                    >
+                    <Link to='/menu-br'>
                         <img src={darkMode ? "./menu-dark.png" : "./menu.png"} alt="Menu Icon" className="h-8" />
-                    </motion.a>
+                    </Link>
                 </div>
             </header>
             <div
